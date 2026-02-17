@@ -1,0 +1,68 @@
+.portfolio{
+    font-family: 'Linden Hill', serif;
+    background-color: #DCF4A2;
+    /* display: flex;
+     justify-content: center;
+    align-items: center; */
+}
+.header{
+    background-color: #1E1E1E;
+    height: 8vh;
+}
+.header p{
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 1.5rem;
+    padding: 1rem;
+    margin: 0;
+}
+
+.intro{
+    position: relative;
+    width: 60%;
+    margin: 0 auto;
+    top: 10vh;
+    display:block;
+    padding: 2rem;
+    background-color: #1E1E1E;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+.intro-container{
+    display:flex;
+    /* flex-direction:row; */
+    align-items:center;
+    justify-content:space-evenly;
+
+}
+
+.Mamtha-image{
+   background-color: #FFFFFF;
+   border-radius: 18px;
+   width: fit-content;
+}
+.Mamtha-image .title{
+    font-size: 1.5rem;
+    padding: 1vh;
+    margin: 0;
+}
+.me1{
+    border-radius: 25px;
+    height: 50vh;
+    padding: 1vh;
+}
+.intro-text{
+    width: 50%;
+    padding: 1rem;
+}
+.intro-text .hello-text{
+    font-size: 3rem;
+    width: 70%;
+    color: #B0FF80;
+}
+.intro-text .bio{
+    color: #FFFFFF;
+    font-size: 1.5rem;
+}
+
