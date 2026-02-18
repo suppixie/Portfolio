@@ -1,7 +1,8 @@
 import "@fontsource/linden-hill";
 import "@fontsource/give-you-glory"; 
 import './styles/Home.css';
-import ME1 from '../assets/ME1.jpg';
+import { useEffect } from 'react';
+import ME1 from '../assets/ME1.jpeg';
 import ME2 from '../assets/ME2.jpeg';
 import ME3 from '../assets/ME3.jpeg';
 import ME4 from '../assets/ME4.jpeg';
@@ -9,6 +10,24 @@ import ME5 from '../assets/ME5.jpeg';
 
 
 function Home() {
+   useEffect(() => {
+  const trigger = document.querySelector(".scroll-trigger");
+
+  const observer = new IntersectionObserver(
+    entries => {
+      if (entries[0].isIntersecting) {
+        document
+          .querySelectorAll(".exhibit")
+          .forEach(el => el.classList.add("active"));
+      }
+    },
+    { threshold: 0 }
+  );
+
+  if (trigger) observer.observe(trigger);
+}, []);
+
+
   return (
     <div className="portfolio">
       <div className="header">
@@ -28,25 +47,39 @@ function Home() {
       </div>
 
       <div className='begin-story-line'>
-        <p>Let's begin my story...</p>
+        <p className="story-line">Let's begin my story...</p>
       </div>
-
+</div>
 
       <div className='about-me'>
+
           <div className='front-envelope'>       
             <p>Little bits of me!</p>
+            <div className="scroll-trigger" />
+
           </div>
-          <img className='me2' src={ME2} alt='me'/>
-          <p>I love working with different art mediums, i have tried most!</p>
+          <div className='exhibits'>
+          <div className='exhibit exhibit1'>
+              <img className='me2' src={ME2} alt='me'/>
+              <p className="exhibit-text exhibit-text1">I love working with different art mediums, i have tried most!</p>
+          </div>
+          
+          <div className='exhibit exhibit2'>
+              <img className='me4' src={ME4} alt='me'/>        
+              <p className="exhibit-text exhibit-text2">I'm a Postgraduate from Univerity of Limerick, Ireland</p>
+          </div>
 
-          <img className='me3' src={ME3} alt='me'/>     
-          <p>My favorite part of designing is making a Collage, even if its on a tshirt</p>   
+          <div className='exhibit exhibit3'>
+              <img className='me5' src={ME5} alt='me'/>
+              <p className="exhibit-text exhibit-text3">I feel really content when im at beaches!</p>
+          </div>
 
-          <img className='me4' src={ME4} alt='me'/>        
-          <p>I'm a Postgraduate from Univerity of Limerick, Ireland</p>
+          <div className='exhibit exhibit4'>
+              <img className='me3' src={ME3} alt='me'/>     
+              <p className="exhibit-text exhibit-text4">My favorite part of designing is making a Collage, even if its on a tshirt</p>   
+          </div>
 
-          <img className='me5' src={ME5} alt='me'/>
-          <p>I feel really content when im at beaches!</p>
+         </div>
 
             <div className='back-envelope'>
               <div className='envelope-flap'/> 
@@ -57,7 +90,6 @@ function Home() {
        <div className='projects'></div>
 
     </div>
-                 </div>
 
   );
 }
