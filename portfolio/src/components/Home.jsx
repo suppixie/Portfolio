@@ -7,7 +7,7 @@ import ME2 from '../assets/ME2.jpeg';
 import ME3 from '../assets/ME3.jpeg';
 import ME4 from '../assets/ME4.jpeg';
 import ME5 from '../assets/ME5.jpeg';
-
+import Projects from './Projects/Projects';
 
 function Home() {
    useEffect(() => {
@@ -96,8 +96,10 @@ function Home() {
        </div>
       <div className="scroll-trigger end" />
 
-       <div className='projects'></div>
-
+    <div className="projects-container">
+                  <h2>Projects</h2>
+        <Projects />
+    </div>
     </div>
 
   );
