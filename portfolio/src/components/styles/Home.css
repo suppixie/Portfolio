@@ -106,9 +106,14 @@
 }
 .scroll-trigger {
   position: absolute;
-  top: 50vh;
   height: 1px;
   width: 100%;
+}
+.scroll-trigger.start {
+  top: 50vh;
+}
+.scroll-trigger.end {
+  bottom: -20vh;
 }
 .me2{
     height: 25vh;
@@ -161,7 +166,7 @@ clip-path: polygon(
     position: relative;*/
       filter: drop-shadow(0 15px 20px rgba(0,0,0,0.4));
   position: absolute;
-  transform: translate(31vh, 5vh);
+  transform: translate(36vh, 5vh);
 
   width: 30vw;
   height: 32vh;

@@ -11,20 +11,27 @@ import ME5 from '../assets/ME5.jpeg';
 
 function Home() {
    useEffect(() => {
-  const trigger = document.querySelector(".scroll-trigger");
+  const exhibits = document.querySelectorAll(".exhibit");
+  const start = document.querySelector(".scroll-trigger.start");
+  const end = document.querySelector(".scroll-trigger.end");
 
   const observer = new IntersectionObserver(
     entries => {
-      if (entries[0].isIntersecting) {
-        document
-          .querySelectorAll(".exhibit")
-          .forEach(el => el.classList.add("active"));
-      }
+      entries.forEach(entry => {
+        if (entry.target === start && entry.isIntersecting) {
+          exhibits.forEach(el => el.classList.add("active"));
+        }
+
+        if (entry.target === end && entry.isIntersecting) {
+          exhibits.forEach(el => el.classList.remove("active"));
+        }
+      });
     },
     { threshold: 0 }
   );
 
-  if (trigger) observer.observe(trigger);
+  if (start) observer.observe(start);
+  if (end) observer.observe(end);
 }, []);
 
 
@@ -55,7 +62,7 @@ function Home() {
 
           <div className='front-envelope'>       
             <p>Little bits of me!</p>
-            <div className="scroll-trigger" />
+            <div className="scroll-trigger start" />
 
           </div>
           <div className='exhibits'>
@@ -84,8 +91,10 @@ function Home() {
             <div className='back-envelope'>
               <div className='envelope-flap'/> 
               <div className='envelope-backing'/> 
+              
               </div>
        </div>
+      <div className="scroll-trigger end" />
 
        <div className='projects'></div>
 
